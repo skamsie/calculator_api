@@ -1,0 +1,34 @@
+plugins:
+  - rubocop-rails
+
+AllCops:
+  SuggestExtensions: false
+  TargetRubyVersion: 3.3
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+Layout/LineLength:
+  Max: 100
+  Exclude:
+    - Gemfile
+    - Gemfile.lock
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 25
+
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Metrics/AbcSize:
+  Enabled: false
