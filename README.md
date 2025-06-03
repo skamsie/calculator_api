@@ -48,4 +48,5 @@ $ curl -G --data-urlencode "expression=100/44+11" http://localhost:3000/calculat
 
 - **framework:** For this task I could have used a lighter framework like Sinatra or Roda, but since the challenge is for a Ruby on Rails position I decided for a minimal rails 7 api application to basically showcase how I am working as a RoR developer (for example using the service objects design pattern).
 - **calculator:** There are many gems that would have easily solved the 'calculator' part, for example [dentaku](https://github.com/rubysolo/dentaku), but I felt I would be avoiding a big bulk of the task by using it, same for using `eval`. For the alghoritm (solving the operator precedence) I took much of the inspiration from the python alghoritm [here](https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0227.Basic%20Calculator%20II/README_EN.md#python3)
-- **other:** No app would be complete without specs and a linter, so I added those as well :) 
+- **BigDecimal:** Because `BigDecimal` ensures precise decimal and large‐integer arithmetic without floating‐point rounding errors.
+- **specs & linter:** No app would be complete without specs and a linter, so I added those as well :) 
