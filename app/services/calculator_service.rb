@@ -15,6 +15,7 @@ require 'bigdecimal/util'
 class CalculatorService
   class InvalidCharacter < StandardError; end
   class DivisionByZero < StandardError; end
+
   class << self
     def call(raw_expression)
       expression = strip_and_remove_spaces(raw_expression)

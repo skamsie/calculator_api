@@ -58,5 +58,14 @@ RSpec.describe CalculatorController, type: :controller do
         expect(response.parsed_body['error']).to eq('Division by zero')
       end
     end
+
+    context 'when the param expression is missing' do
+      it 'renders unprocessable_entity' do
+        get :compute
+
+        expect(response).to have_http_status(:bad_request)
+        expect(response.parsed_body['error']).to eq('Missing required parameter: expression')
+      end
+    end
   end
 end

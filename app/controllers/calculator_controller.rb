@@ -2,13 +2,14 @@
 
 class CalculatorController < ApplicationController
   def compute
-    raw_expression = params[:expression].to_s
-    result = CalculatorService.call(raw_expression)
+    result = CalculatorService.call(calculator_params)
 
     render json: {
       expression: format_expression(result[:tokens]),
       result: format_result(result[:result])
     }
+  rescue ActionController::ParameterMissing
+    render json: { error: 'Missing required parameter: expression' }, status: :bad_request
   rescue CalculatorService::InvalidCharacter
     render json: { error: 'Invalid characters in expression' }, status: :bad_request
   rescue CalculatorService::DivisionByZero
@@ -16,6 +17,10 @@ class CalculatorController < ApplicationController
   end
 
   private
+
+  def calculator_params
+    params.require(:expression).to_s
+  end
 
   def format_expression(tokenized_expression)
     tokenized_expression.join(' ')
